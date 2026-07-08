@@ -7,6 +7,8 @@ import router from "./router";
 import vuetify from "./plugins/vuetify";
 import i18n from "./plugins/language";
 
+import 'vuetify/styles'
+import '@mdi/font/css/materialdesignicons.css'
 import "./styles/main.scss";
 
 const app = createApp(App);

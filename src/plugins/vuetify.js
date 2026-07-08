@@ -4,8 +4,10 @@ import { createVuetify } from "vuetify";
 const ORANGE = "#FE7F2D";
 const ORANGE_DARK = "#E56A18";
 
-
 export default createVuetify({
+  icons: {
+    defaultSet: "mdi",
+  },
   theme: {
     defaultTheme: "light",
     themes: {
