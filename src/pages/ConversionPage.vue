@@ -62,11 +62,17 @@ const submit = async () => {
         <!------------------>
         <v-col cols="2">Format output:</v-col>
         <v-col cols="10">
-          <v-radio-group v-model="vehicleField" inline>
-            <v-radio label="Vehicle Number" value="vehicleNumber" />
+          <v-btn-toggle
+            v-model="vehicleField"
+            color="secondary"
+            mandatory
+            variant="outlined"
+          >
+            <v-btn value="vehicleNumber"> Vehicle Number </v-btn>
 
-            <v-radio label="Vehicle Code" value="vehicleCode" />
-          </v-radio-group>
+            <v-btn value="vehicleCode"> Vehicle Code </v-btn>
+          </v-btn-toggle>
+
           <div class="text-description">
             Output format:
             <strong
