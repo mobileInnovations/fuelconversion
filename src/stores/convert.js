@@ -15,6 +15,7 @@ export const useConvertStore = defineStore("convert", {
       this.loading = true;
 
       try {
+        const fileName = `${vehicleField}_output_${Date.now()}.csv`;
         const formData = new FormData();
 
         formData.append("master", masterFile);
@@ -34,7 +35,7 @@ export const useConvertStore = defineStore("convert", {
 
         const a = document.createElement("a");
         a.href = url;
-        a.download = "result.csv";
+        a.download = fileName;
         a.click();
 
         window.URL.revokeObjectURL(url);

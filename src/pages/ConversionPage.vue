@@ -2,27 +2,43 @@
 import { ref } from "vue";
 import { useI18n } from "vue-i18n";
 import { useConvertStore } from "@/stores/convert";
-
+import AlertComponent from "@/components/AlertComponent";
 const { t } = useI18n();
 
 const store = useConvertStore();
 
+const loading = ref(false);
 const master = ref(null);
 const fleet = ref(null);
 const vehicleField = ref("vehicleNumber");
 
 const submit = async () => {
-  await store.convert(master.value, fleet.value, vehicleField.value);
+  loading.value = true;
+  try {
+    await store.convert(master.value, fleet.value, vehicleField.value);
+    loading.value = false;
+    AlertComponent.success(
+      "Success.",
+      "The files have been converted and downloaded.",
+    );
+  } catch (error) {
+    loading.value = false;
+    console.error("Error occurred while converting:", error);
+
+    AlertComponent.error(
+      "An error occurred while converting the files.",
+      error.message || error,
+    );
+  }
 };
 </script>
 
 <template>
   <v-card class="container">
     <h1>Fuel Conversion</h1>
-    <v-btn color="error" prepend-icon="mdi-close-circle"> Not Working </v-btn>
     <v-container class="main-conversion">
       <v-row>
-        <v-col cols="2">Car Info:</v-col>
+        <v-col cols="2">Master file:</v-col>
         <v-col cols="10">
           <v-file-input
             v-model="master"
@@ -86,6 +102,7 @@ const submit = async () => {
             text="Convert"
             variant="tonal"
             color="primary"
+            :loading="loading"
             block
             :disabled="!master || !fleet"
             @click="submit"
