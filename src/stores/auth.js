@@ -8,8 +8,8 @@ const baseUrl = `${import.meta.env.VITE_API_URL}/auth`;
 export const useAuthStore = defineStore("auth", {
   id: "auth",
   state: () => ({
-    user: JSON.parse(localStorage.getItem("USER") || "null"),
-    access_token: JSON.parse(localStorage.getItem("ACCESS_TOKEN") || "null"),
+    // user: JSON.parse(localStorage.getItem("USER") || "null"),
+    // access_token: JSON.parse(localStorage.getItem("ACCESS_TOKEN") || "null"),
     returnUrl: null,
   }),
   actions: {
@@ -18,7 +18,6 @@ export const useAuthStore = defineStore("auth", {
         username,
         password,
       });
-      console.log("Login successful:", user);
       this.user = user;
       localStorage.setItem("USER", JSON.stringify(user));
 
