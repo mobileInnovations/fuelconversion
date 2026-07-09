@@ -61,7 +61,7 @@ async function fetchWithRetry(url, options, maxRetries = 3) {
     console.warn(
       `[429] Too many requests — retrying in ${retryAfterSeconds}s (attempt ${
         attempt + 1
-      }/${maxRetries})`
+      }/${maxRetries})`,
     );
 
     // optional user feedback
@@ -100,10 +100,17 @@ async function handleResponse(response) {
   const contentType = response.headers.get("content-type");
   const { user, logout } = useAuthStore();
 
+  let data;
+
   // JSON response
   if (contentType && contentType.includes("application/json")) {
     const text = await response.text();
-    const data = text && JSON.parse(text);
+
+    try {
+      data = text ? JSON.parse(text) : null;
+    } catch {
+      data = null;
+    }
 
     if (!response.ok) {
       // 🔒 Unauthorized
@@ -112,17 +119,23 @@ async function handleResponse(response) {
           icon: "error",
           title: "Session expired",
           text: "Invalid or expired token. Please login again.",
-          footer:
-            "Please contact IT Admin (Wittaya Tilakanon, Mathulada Katintong)",
+          footer: "Please contact IT Admin",
           confirmButtonText: "Logout",
           confirmButtonColor: "red",
         }).then((result) => {
           if (result.isConfirmed) logout();
         });
+
         router.push("/");
       }
 
-      const error = (data && data.message) || response.statusText;
+      // ✅ support error / message / statusText
+      const error =
+        data?.error ||
+        data?.message ||
+        response.statusText ||
+        "Internal Server Error";
+
       return Promise.reject(error);
     }
 
@@ -131,6 +144,7 @@ async function handleResponse(response) {
 
   // Blob (e.g. file download)
   const blobData = await response.blob();
+
   if (!response.ok) {
     if (response.status === 429) {
       Swal.fire({
@@ -140,7 +154,9 @@ async function handleResponse(response) {
         confirmButtonText: "OK",
       });
     }
+
     return Promise.reject("Unexpected non-JSON error response");
   }
+
   return blobData;
 }

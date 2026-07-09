@@ -35,7 +35,7 @@ export const useConvertStore = defineStore("convert", {
 
         return true;
       } catch (error) {
-        console.error(error);
+        console.error(error.message || error);
         throw error;
       } finally {
         this.loading = false;

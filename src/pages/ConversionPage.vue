@@ -13,7 +13,12 @@ const vehicleField = ref("vehicleNumber");
 const submit = async () => {
   loading.value = true;
   try {
-    await store.convert(master.value, fleet.value, vehicleField.value);
+    const result = await store.convert(
+      master.value,
+      fleet.value,
+      vehicleField.value,
+    );
+    console.log("Conversion result:", result);
     loading.value = false;
     AlertComponent.success(
       "Success.",
