@@ -38,6 +38,6 @@ export default defineConfig({
   },
   server: {
     port: 5000,
-    allowedHosts: ["https://fuelconversion.mobileinnovasion.asia"],
+    allowedHosts: ["http://fuelconversion.mobileinnovasion.asia"],
   },
 });

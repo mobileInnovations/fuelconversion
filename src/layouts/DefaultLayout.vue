@@ -11,7 +11,7 @@
 
     <v-app-bar app>
       <!-- <v-app-bar-nav-icon @click="drawer = !drawer" /> -->
-      <v-app-bar-title>FleetViews</v-app-bar-title>
+      <v-app-bar-title>Fule Conversion</v-app-bar-title>
 
       <v-spacer />
 

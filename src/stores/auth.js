@@ -18,10 +18,9 @@ export const useAuthStore = defineStore("auth", {
         username,
         password,
       });
+      console.log("Login successful:", user);
       this.user = user;
-      this.access_token = user.access_token;
       localStorage.setItem("USER", JSON.stringify(user));
-      localStorage.setItem("ACCESS_TOKEN", JSON.stringify(user.access_token));
 
       router.push("/");
     },
@@ -44,7 +43,8 @@ export const useAuthStore = defineStore("auth", {
       this.access_token = null;
       localStorage.removeItem("ACCESS_TOKEN");
       localStorage.removeItem("USER");
-      router.replace("/auth/login");
+
+      router.replace("/login");
 
       // Give Vue router a moment to finish before reload (optional delay)
       setTimeout(() => location.reload(), 100);

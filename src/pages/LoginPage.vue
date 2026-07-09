@@ -1,7 +1,7 @@
 <template>
   <v-card class="mx-auto pa-6" max-width="400" width="100%" elevation="4">
     <div class="text-center mb-6">
-      <h2 class="text-h5 font-weight-bold">FleetViews</h2>
+      <h2 class="text-h5 font-weight-bold">Fule Conversion</h2>
       <p class="text-medium-emphasis">Sign in to continue</p>
     </div>
 
@@ -42,8 +42,11 @@
 <script setup>
 import { ref, reactive } from "vue";
 import { useRouter } from "vue-router";
+import { useAuthStore } from "@/stores/auth";
+import AlertComponent from "@/components/AlertComponent";
 
 const router = useRouter();
+const authStore = useAuthStore();
 
 const formRef = ref();
 const isValid = ref(false);
@@ -71,11 +74,17 @@ const handleLogin = async () => {
     console.log("Login Payload:", form);
 
     // Mock Login
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    const res = await authStore.login(form.username, form.password);
+
+    console.log("Login Response:", res);
 
     router.push("/");
   } catch (error) {
     console.error(error);
+    AlertComponent.error(
+      "Login failed",
+      "Please check your username and password and try again.",
+    );
   } finally {
     loading.value = false;
   }

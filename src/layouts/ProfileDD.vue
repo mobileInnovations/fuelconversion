@@ -1,19 +1,12 @@
 <script>
-import { useI18n } from "vue-i18n";
 import { useAuthStore } from "@/stores/auth";
-import { getGreetingText } from "@/utils/formatHelp";
 import router from "@/router";
 
 export default {
   setup() {
     const authStore = useAuthStore();
-    const { t } = useI18n();
 
-    const listItem = [
-      { title: t("edit_profile"), action: "edit-profile" },
-      { title: t("change_password"), action: "change-pwd" },
-      { title: t("logout"), action: "logout" },
-    ];
+    const listItem = [{ title: t("logout"), action: "logout" }];
 
     return {
       authStore,
@@ -38,12 +31,10 @@ export default {
 <template>
   <div class="pa-4">
     <h4 class="mb-n1">
-      {{ $t("good") }} {{ getGreetingText() }},
-      <span class="font-weight-regular">{{ authStore?.user?.username }}</span>
+      <span class="font-weight-regular">{{
+        authStore?.user?.username || "User"
+      }}</span>
     </h4>
-    <span class="text-subtitle-2 text-medium-emphasis">
-      {{ authStore?.user?.rolename }}
-    </span>
 
     <v-divider />
 
