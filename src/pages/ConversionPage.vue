@@ -50,9 +50,6 @@ const submit = async () => {
             ไฟล์ข้อมูลรถเป็นไฟล์ Excel
             ใช้สำหรับการจับคู่ระหว่างหมายเลขบัตรและหมายเลขรถที่อยู่ในระบบ Fleet
             Expert Professional
-            <div class="text-file-example" @click="downloadExampleFile">
-              {{ $t("example_file") }}
-            </div>
           </div>
         </v-col>
 
@@ -67,9 +64,6 @@ const submit = async () => {
             ไฟล์ที่ได้รับจากบริษัท ESSO
             เพื่อเป็นไฟล์ต้นฉบับสำหรับแปลงข้อมูลให้เป็นรูปแบบของโปรแกรม Fleet
             Expert Pro
-            <div class="text-file-example" @click="downloadExampleFile">
-              {{ $t("example_file") }}
-            </div>
           </div>
         </v-col>
 
