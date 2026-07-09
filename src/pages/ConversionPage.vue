@@ -1,9 +1,7 @@
 <script setup>
 import { ref } from "vue";
-import { useI18n } from "vue-i18n";
 import { useConvertStore } from "@/stores/convert";
 import AlertComponent from "@/components/AlertComponent";
-const { t } = useI18n();
 
 const store = useConvertStore();
 
@@ -51,6 +49,12 @@ const submit = async () => {
             ใช้สำหรับการจับคู่ระหว่างหมายเลขบัตรและหมายเลขรถที่อยู่ในระบบ Fleet
             Expert Professional
           </div>
+          <div class="text-file-example">
+            ตัวอย่างไฟล์ Master file:
+            <a href="public\docs\Master Data Durbell.xlsx" target="_blank"
+              >Master file example</a
+            >
+          </div>
         </v-col>
 
         <v-col cols="2">Fuel Info:</v-col>
@@ -61,9 +65,17 @@ const submit = async () => {
             variant="outlined"
           ></v-file-input>
           <div class="text-description">
-            ไฟล์ที่ได้รับจากบริษัท ESSO
+            ไฟล์ที่ได้รับจากบริษัท
             เพื่อเป็นไฟล์ต้นฉบับสำหรับแปลงข้อมูลให้เป็นรูปแบบของโปรแกรม Fleet
             Expert Pro
+          </div>
+          <div class="text-file-example">
+            ตัวอย่างไฟล์ Fuel Info:
+            <a
+              href="public\docs\รายงานการเติมน้ำมันเชื้อเพลิง.xlsx"
+              target="_blank"
+              >Fuel Info example</a
+            >
           </div>
         </v-col>
 

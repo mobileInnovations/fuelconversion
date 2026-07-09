@@ -19,14 +19,13 @@ export const useConvertStore = defineStore("convert", {
         formData.append("fleet", fleetFile);
         formData.append("vehicleField", vehicleField);
 
-        // fetchWrapper คืนค่า Blob โดยตรง
         const blob = await fetchWrapper.post(baseUrl, formData);
 
         const url = window.URL.createObjectURL(blob);
 
         const a = document.createElement("a");
         a.href = url;
-        a.download = `${vehicleField}_output.csv`;
+        a.download = `${vehicleField}_output_${Date.now()}.csv`;
 
         document.body.appendChild(a);
         a.click();
