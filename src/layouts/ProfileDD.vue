@@ -37,7 +37,7 @@ export default {
         authStore?.user?.username || "User"
       }}</span>
       <span class="greeting__company"
-        >({{ authStore?.user?.company || "Company" }})</span
+        >({{ authStore?.user?.company_name || "Company" }})</span
       >
     </h4>
 
