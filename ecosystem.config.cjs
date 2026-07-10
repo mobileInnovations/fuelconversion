@@ -5,7 +5,7 @@ module.exports = {
       script: "src/main.js",
 
       instances: "1",
-      exec_mode: "cluster",
+      exec_mode: "fork",
 
       watch: false,
       autorestart: true,
