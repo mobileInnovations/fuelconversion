@@ -1,16 +1,6 @@
 <template>
   <v-app>
-    <!-- <v-navigation-drawer v-model="drawer" app>
-      <v-list nav>
-        <v-list-item to="/" title="Dashboard" />
-        <v-list-item to="/devices" title="Devices" />
-        <v-list-item to="/playback" title="Playback" />
-        <v-list-item to="/settings" title="Settings" />
-      </v-list>
-    </v-navigation-drawer> -->
-
     <v-app-bar app>
-      <!-- <v-app-bar-nav-icon @click="drawer = !drawer" /> -->
       <v-app-bar-title>Fule Conversion</v-app-bar-title>
 
       <v-spacer />

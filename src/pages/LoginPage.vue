@@ -78,7 +78,7 @@ const handleLogin = async () => {
 
     console.log("Login Response:", res);
 
-    router.push("/");
+    router.push("/main");
   } catch (error) {
     console.error(error);
     AlertComponent.error(

@@ -4,7 +4,7 @@ import EmptyLayout from "@/layouts/EmptyLayout.vue";
 
 export const routes = [
   {
-    path: "/login",
+    path: "/auth/login",
     component: AuthLayout,
     children: [
       {
@@ -15,7 +15,7 @@ export const routes = [
   },
 
   {
-    path: "/",
+    path: "/main",
     component: DefaultLayout,
     children: [
       {

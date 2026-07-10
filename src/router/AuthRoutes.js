@@ -1,6 +1,4 @@
-import DefaultLayout from "@/layouts/DefaultLayout.vue";
 import AuthLayout from "@/layouts/AuthLayout.vue";
-import EmptyLayout from "@/layouts/EmptyLayout.vue";
 
 const AuthRoutes = {
   path: "/auth",
@@ -10,13 +8,11 @@ const AuthRoutes = {
   },
   children: [
     {
-      name: "Login",
-      path: "/login",
+      path: "login",
       component: () => import("@/pages/LoginPage.vue"),
     },
     {
-      name: "Error 404",
-      path: "/pages/error",
+      path: "pages/error",
       component: () => import("@/pages/404Page.vue"),
     },
   ],

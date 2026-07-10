@@ -126,7 +126,7 @@ async function handleResponse(response) {
           if (result.isConfirmed) logout();
         });
 
-        router.push("/");
+        router.push("/auth/login");
       }
 
       // ✅ support error / message / statusText

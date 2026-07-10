@@ -1,19 +1,17 @@
 import DefaultLayout from "@/layouts/DefaultLayout.vue";
 
-const MainRoutes = {
+export default {
   path: "/main",
+  component: DefaultLayout,
   meta: {
     requiresAuth: true,
   },
-  redirect: "/main/dashboard/default",
-  component: () => DefaultLayout,
+  redirect: "/",
   children: [
     {
+      path: "",
       name: "Default",
-      path: "/",
       component: () => import("@/pages/ConversionPage.vue"),
     },
   ],
 };
-
-export default MainRoutes;

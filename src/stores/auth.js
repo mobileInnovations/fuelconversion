@@ -21,7 +21,7 @@ export const useAuthStore = defineStore("auth", {
       this.user = user;
       localStorage.setItem("USER", JSON.stringify(user));
 
-      router.push("/");
+      router.push("/main");
     },
 
     async changePassword({ currentPassword, newPassword }) {
@@ -43,7 +43,7 @@ export const useAuthStore = defineStore("auth", {
       localStorage.removeItem("ACCESS_TOKEN");
       localStorage.removeItem("USER");
 
-      router.replace("/login");
+      router.replace("/auth/login");
 
       // Give Vue router a moment to finish before reload (optional delay)
       setTimeout(() => location.reload(), 100);

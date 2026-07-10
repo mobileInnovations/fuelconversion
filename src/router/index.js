@@ -16,21 +16,21 @@ const router = createRouter({
 });
 
 router.beforeEach(async (to, from, next) => {
-  const publicPages = ["/login"];
+  const publicPages = ["/auth/login"];
   const authRequired = !publicPages.includes(to.path);
   const auth = useAuthStore();
 
   if (to.matched.some((record) => record.meta.requiresAuth)) {
     if (authRequired && !auth.user) {
       auth.returnUrl = to.fullPath;
-      return next("/login");
+      return next("/auth/login");
     } else {
       next();
     }
   } else {
     if (authRequired && !auth.user) {
       auth.returnUrl = to.fullPath;
-      return next("/login");
+      return next("/auth/login");
     } else {
       next();
     }
