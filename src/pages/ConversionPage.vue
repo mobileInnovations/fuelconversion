@@ -56,7 +56,7 @@ const submit = async () => {
           </div>
           <div class="text-file-example">
             ตัวอย่างไฟล์ Master file:
-            <a href="public\docs\Master Data Durbell.xlsx" target="_blank"
+            <a href="public\docs\Master_file_example.xlsx" target="_blank"
               >Master file example</a
             >
           </div>
@@ -77,7 +77,7 @@ const submit = async () => {
           <div class="text-file-example">
             ตัวอย่างไฟล์ Fuel Info:
             <a
-              href="public\docs\รายงานการเติมน้ำมันเชื้อเพลิง.xlsx"
+              href="public\docs\Fuel_Info_example.xlsx"
               target="_blank"
               >Fuel Info example</a
             >
