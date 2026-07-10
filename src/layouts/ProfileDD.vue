@@ -6,7 +6,9 @@ export default {
   setup() {
     const authStore = useAuthStore();
 
-    const listItem = [{ title: "logout", action: "logout" }];
+    const listItem = [
+      { title: "logout", action: "logout", icon: "mdi-logout" },
+    ];
 
     return {
       authStore,
@@ -53,7 +55,7 @@ export default {
           @click="onClick(list.action)"
         >
           <v-list-item-title class="text-subtitle-2">
-            {{ list.title }}
+            <v-icon size="24">{{ list.icon }}</v-icon> {{ list.title }}
           </v-list-item-title>
         </v-list-item>
       </v-list>
