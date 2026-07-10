@@ -1,7 +1,7 @@
 import DefaultLayout from "@/layouts/DefaultLayout.vue";
 
 export default {
-  path: "/main",
+  path: "/",
   component: DefaultLayout,
   meta: {
     requiresAuth: true,

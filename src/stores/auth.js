@@ -8,20 +8,21 @@ const baseUrl = `${import.meta.env.VITE_API_URL}/auth`;
 export const useAuthStore = defineStore("auth", {
   id: "auth",
   state: () => ({
-    // user: JSON.parse(localStorage.getItem("USER") || "null"),
+    user: JSON.parse(localStorage.getItem("USER") || "null"),
     // access_token: JSON.parse(localStorage.getItem("ACCESS_TOKEN") || "null"),
     returnUrl: null,
   }),
   actions: {
     async login(username, password) {
-      const user = await fetchWrapper.post(`${baseUrl}/login`, {
+      const { data } = await fetchWrapper.post(`${baseUrl}/login`, {
         username,
         password,
       });
+      const { user } = data;
       this.user = user;
       localStorage.setItem("USER", JSON.stringify(user));
 
-      router.push("/main");
+      router.push("/");
     },
 
     async changePassword({ currentPassword, newPassword }) {

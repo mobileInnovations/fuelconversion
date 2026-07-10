@@ -15,7 +15,7 @@ export const routes = [
   },
 
   {
-    path: "/main",
+    path: "/",
     component: DefaultLayout,
     children: [
       {

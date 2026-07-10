@@ -6,12 +6,11 @@ export default {
   setup() {
     const authStore = useAuthStore();
 
-    const listItem = [{ title: t("logout"), action: "logout" }];
+    const listItem = [{ title: "logout", action: "logout" }];
 
     return {
       authStore,
       listItem,
-      getGreetingText,
     };
   },
   methods: {
@@ -30,10 +29,14 @@ export default {
 
 <template>
   <div class="pa-4">
-    <h4 class="mb-n1">
-      <span class="font-weight-regular">{{
+    <h4 class="greeting">
+      Welcome,
+      <span class="greeting__name">{{
         authStore?.user?.username || "User"
       }}</span>
+      <span class="greeting__company"
+        >({{ authStore?.user?.company || "Company" }})</span
+      >
     </h4>
 
     <v-divider />
@@ -72,5 +75,24 @@ export default {
 
 .profile-scroll :deep(.ps__thumb-y) {
   background-color: rgba(var(--v-theme-primary), 0.6);
+}
+
+.greeting {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.greeting__name {
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.greeting__company {
+  font-weight: 400;
+  font-size: 13px;
+  color: var(--text-secondary, #6b7280);
 }
 </style>

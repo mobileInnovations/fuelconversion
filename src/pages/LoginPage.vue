@@ -70,15 +70,9 @@ const handleLogin = async () => {
   try {
     loading.value = true;
 
-    // TODO: Call Login API
-    console.log("Login Payload:", form);
+    await authStore.login(form.username, form.password);
 
-    // Mock Login
-    const res = await authStore.login(form.username, form.password);
-
-    console.log("Login Response:", res);
-
-    router.push("/main");
+    router.push("/");
   } catch (error) {
     console.error(error);
     AlertComponent.error(
