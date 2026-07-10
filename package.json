@@ -4,15 +4,12 @@
   "type": "module",
   "version": "0.0.0",
   "scripts": {
+    "start": "vite",
     "dev": "vite --open",
     "build": "run-p type-check \"build-only {@}\" --",
     "preview": "vite preview",
     "build-only": "vite build",
-    "type-check": "vue-tsc --build --force",
-    "pm2-start": "pm2 start ecosystem.config.cjs",
-    "pm2-reload": "pm2 reload fuelconversion",
-    "pm2-stop": "pm2 stop fuelconversion",
-    "pm2-logs": "pm2 logs fuelconversion"
+    "type-check": "vue-tsc --build --force"
   },
   "dependencies": {
     "@fontsource/roboto": "^5.2.10",
