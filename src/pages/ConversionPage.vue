@@ -56,7 +56,7 @@ const submit = async () => {
           </div>
           <div class="text-file-example">
             ตัวอย่างไฟล์ Master file:
-            <a href="public/docs/Master_file_example.xlsx" target="_blank"
+            <a href="docs/Master_file_example.xlsx" target="_blank"
               >Master file example</a
             >
           </div>
@@ -76,7 +76,7 @@ const submit = async () => {
           </div>
           <div class="text-file-example">
             ตัวอย่างไฟล์ Fuel Info:
-            <a href="public/docs/Fuel_Info_example.xlsx" target="_blank"
+            <a href="docs/Fuel_Info_example.xlsx" target="_blank"
               >Fuel Info example</a
             >
           </div>
@@ -108,7 +108,7 @@ const submit = async () => {
 
           <div class="text-file-example">
             ตัวอย่างไฟล์ที่ได้จากการแปลงข้อมูลจะมีรูปแบบดังนี้
-            <a href="public/docs/Converted_file_example.csv" target="_blank"
+            <a href="docs/Converted_file_example.csv" target="_blank"
               >Converted file example</a
             >
           </div>
